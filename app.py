@@ -113,7 +113,7 @@ st.warning("""
 """)
 
 uploaded_file = st.file_uploader(
-    "Upload a video file (Supported formats: mp4, avi, mov, mkv)", type=["mp4", "avi", "mov", "mkv", "mpeg"])
+    "Upload a video file (Supported formats: mp4, avi, mov, mkv,mpeg4)", type=["mp4", "avi", "mov", "mkv", "mpeg"])
 
 if uploaded_file is not None:
     # Display loading animation
