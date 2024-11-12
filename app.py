@@ -24,6 +24,7 @@ def load_facenet_model():
 
 # Load a single video file and extract FaceNet embeddings
 
+
 def load_single_video(video_file, facenet_model):
     cap = cv2.VideoCapture(video_file)
     embeddings = []
@@ -44,6 +45,7 @@ def load_single_video(video_file, facenet_model):
 
 # LSTM Model using FaceNet embeddings
 
+
 def create_model():
     model = Sequential()
     model.add(LSTM(128, return_sequences=False,
@@ -57,6 +59,7 @@ def create_model():
     return model
 
 # Function to provide explanation based on the prediction
+
 
 def generate_explanation(class_label, prediction_probabilities):
     explanations = []
@@ -82,8 +85,8 @@ def generate_explanation(class_label, prediction_probabilities):
             f"Model confidence in this being real: {prediction_probabilities[0]*100:.2f}%")
     return explanations
 
-# Function to load Lottie animation
 
+# Function to load Lottie animation
 st.set_page_config(
     page_title="NeuroForge",
     page_icon="🧊"
@@ -100,13 +103,17 @@ path = get('./deepfake-model.json')
 # Streamlit UI
 st.title("NeuroForge - Deep Fake Video Detection")
 
-
 st.markdown("""
 Welcome to **NeuroForge**, a cutting-edge deep fake detection tool. Simply upload a video, and NeuroForge will analyze it to determine if the content is genuine or manipulated.
 """)
 
+# Add Disclaimer
+st.warning("""
+**Disclaimer:** This tool is designed to assist in identifying potential deepfakes but is not 100% accurate. There may be instances where the analysis is incorrect. We recommend verifying results through additional methods to confirm authenticity.
+""")
+
 uploaded_file = st.file_uploader(
-    "Upload a video file (Supported formats: mp4, avi, mov, mkv)", type=["mp4", "avi", "mov", "mkv","mpeg"])
+    "Upload a video file (Supported formats: mp4, avi, mov, mkv)", type=["mp4", "avi", "mov", "mkv", "mpeg"])
 
 if uploaded_file is not None:
     # Display loading animation
@@ -236,3 +243,8 @@ if open_docs:
         "explanation-driven insights. This platform is a valuable resource in today's digital landscape, supporting individuals "
         "and organizations in maintaining the integrity of video content and promoting digital authenticity."
     )
+
+# Developer Credits
+st.markdown("""
+**Developed by**: Parivalavan M, Saritha V, Poovarasan B
+""")
