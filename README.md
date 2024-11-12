@@ -51,11 +51,11 @@ To run NeuroForge, make sure you have the following dependencies installed:
 ### Steps
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/neuroforge.git
+   git clone hhttps://github.com/ParivalavanIT/deepfake-detection.git
    ```
 2. Change directory to the project folder:
    ```bash
-   cd neuroforge
+   cd deepfake-detection
    ```
 3. Install required packages:
    ```bash
