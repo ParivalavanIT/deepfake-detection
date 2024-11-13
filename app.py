@@ -10,6 +10,11 @@ from streamlit_lottie import st_lottie
 import json
 import requests
 
+st.set_page_config(
+    page_title="NeuroForge",
+    page_icon="🧊"
+)
+
 # Parameters
 frame_height, frame_width = 160, 160  # Required input size for FaceNet
 sequence_length = 10  # Number of frames per sequence
@@ -87,10 +92,6 @@ def generate_explanation(class_label, prediction_probabilities):
 
 
 # Function to load Lottie animation
-st.set_page_config(
-    page_title="NeuroForge",
-    page_icon="🧊"
-)
 
 
 def get(path: str):
@@ -180,16 +181,10 @@ def load_lottie_url(url: str):
     return r.json()
 
 
-# URL for a Lottie animation that fits documentation context
-doc_animation_url = "https://assets2.lottiefiles.com/packages/lf20_x62chJ.json"  # Example URL
-doc_animation = load_lottie_url(doc_animation_url)
-
 open_docs = st.button("Open Documentation")
 
 # Display documentation when the button is clicked
 if open_docs:
-    # Display Lottie animation
-    st_lottie(doc_animation, height=150, width=150)
 
     st.header("Abstract")
     st.write(
@@ -245,6 +240,29 @@ if open_docs:
     )
 
 # Developer Credits
-st.markdown("""
-**Developed by**: Parivalavan M, Saritha V, Poovarasan B
-""")
+
+# Developer details
+developers = [
+    {
+        "name": "Parivalavan M",
+        "linkedin": "https://www.linkedin.com/in/parivalavan-m/",
+    },
+    {
+        "name": "Saritha V",
+        "linkedin": "https://www.linkedin.com/in/saritha-velmurugan-54a830265/",
+    },
+    {
+        "name": "Poovarasan B",
+        "linkedin": "https://www.linkedin.com/in/poovarasan-b-bb53b0282/",
+    }
+]
+# Create cards for each developer
+for dev in developers:
+    st.markdown(f"""
+    <div style="display: flex; align-items: center; margin-bottom: 20px;">
+        <div>
+            <h3>{dev['name']}</h3>
+            <a href="{dev['linkedin']}" target="_blank">LinkedIn</a>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
