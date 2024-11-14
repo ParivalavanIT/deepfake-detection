@@ -12,7 +12,7 @@ import requests
 
 st.set_page_config(
     page_title="NeuroForge",
-    page_icon="🧊"
+    page_icon="🤖"
 )
 
 # Parameters
